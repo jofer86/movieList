@@ -21,10 +21,19 @@ class List extends Component {
   }
   render() {
     const { data, loading } = this.state;
+
     if (loading) {
       return <div>Loading...</div>
     }
-    return data.map(movie => <Card key={movie.id} movie={movie} />);
+    return (
+      <div className="row">
+        {data.map(movie =>
+          <div className="col-sm-2" key={movie.id}>
+            <Card movie={movie} />
+          </div>
+        )}
+      </div>
+    )
   }
 }
 
